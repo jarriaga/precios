@@ -89,12 +89,12 @@
                     min-height: 80px;
                     margin-bottom: 20px;
                     font-size: 11px;
-                    font-weight: 600;
+                    font-weight: 500;
                 }
                 .btn-landing h2{
                     font-size: 28px;
                     margin: 5px;
-                    font-weight: 600;
+                    font-weight: 300;
                 }
 
             }
@@ -115,7 +115,6 @@
                     Chécalo Aquí
                 </div>
                     <div class="row">
-                    <div class="col-md-12">
                         <div class="col-md-5">
                             <a class="btn btn-lg btn-block btn-success btn-landing">
                                 Quieres cazar las mejores ofertas?
@@ -131,7 +130,6 @@
                                 <h2><i class="fa fa-rocket" aria-hidden="true"></i> Click aquí</h2>
                             </a>
                         </div>
-                    </div>
                     </div>
             </div>
 
