@@ -92,7 +92,7 @@
                     font-weight: 600;
                 }
                 .btn-landing h2{
-                    font-size: 28px;
+                    font-size: 20px;
                     margin: 5px;
                     font-weight: 300;
                 }
