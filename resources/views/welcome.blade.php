@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link href="/css/styles.css" rel="stylesheet" type="text/css">
         <!-- Styles -->
         <style>
             html, body {
@@ -39,18 +39,21 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+                z-index: 99;
             }
 
             .content {
+                z-index: 99;
                 text-align: center;
             }
 
             .title {
                 font-size: 84px;
+                color: #fff;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -64,8 +67,9 @@
             }
         </style>
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+    <body >
+        <div class="overlay"></div>
+        <div class="flex-center position-ref full-height bg-img ">
             @if (Route::has('login'))
                 <div class="top-right links">
                     <a href="{{ url('/login') }}">{{ trans('app.Login') }}</a>

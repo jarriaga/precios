@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -21,6 +22,7 @@
     </script>
 </head>
 <body>
+
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
