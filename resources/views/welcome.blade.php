@@ -89,11 +89,12 @@
                     min-height: 80px;
                     margin-bottom: 20px;
                     font-size: 11px;
-                    font-weight: 500;
+                    font-weight: 600;
                 }
                 .btn-landing h2{
                     font-size: 28px;
                     margin: 5px;
+                    font-weight: 600;
                 }
 
             }
