@@ -16,6 +16,7 @@
         <link href="/css/styles.css" rel="stylesheet" type="text/css">
 
 
+
         <script src="https://use.fontawesome.com/95088d75b6.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -75,6 +76,26 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+
+            @media all and (max-width:768px){
+                .container{
+                    min-width: 320px;
+                }
+                .title{
+                    font-size: 42px;
+                }
+                .btn-landing{
+                    min-height: 80px;
+                    margin-bottom: 20px;
+                    font-size: 11px;
+                }
+                .btn-landing h2{
+                    font-size: 20px;
+                    margin: 5px;
+                }
+
+            }
         </style>
     </head>
     <body >
@@ -87,29 +108,29 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content container">
                 <div class="title m-b-md">
                     Chécalo Aquí
                 </div>
-                <div class="container">
+                    <div class="row">
                     <div class="col-md-12">
                         <div class="col-md-5">
-                            <button class="btn btn-lg btn-block btn-success btn-landing">
+                            <a class="btn btn-lg btn-block btn-success btn-landing">
                                 Quieres cazar las mejores ofertas?
                                 <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Click aquí</h2>
-                            </button>
+                            </a>
                         </div>
                         <div class="col-md-2">
 
                         </div>
                         <div class="col-md-5">
-                            <button class="btn btn-lg btn-block btn-info btn-landing">
-                                <p>Quieres anunciar tu negocio o servicios,<br> y llevarlo al siguiente nivel?</p>
+                            <a class="btn btn-lg btn-block btn-info btn-landing">
+                                Quieres anunciar tu negocio o servicios,<br> y llevarlo al siguiente nivel?
                                 <h2><i class="fa fa-rocket" aria-hidden="true"></i> Click aquí</h2>
-                            </button>
+                            </a>
                         </div>
                     </div>
-                </div>
+                    </div>
             </div>
 
         </div>
