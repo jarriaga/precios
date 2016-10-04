@@ -117,7 +117,7 @@
                     <div class="row">
                         <div class="col-md-5">
                             <a class="btn btn-lg btn-block btn-success btn-landing">
-                                Quieres cazar las mejores ofertas?
+                                <br>Quieres cazar las mejores ofertas?<br>
                                 <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Click aquí</h2>
                             </a>
                         </div>
