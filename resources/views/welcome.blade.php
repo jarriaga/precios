@@ -15,7 +15,10 @@
 
         <link href="/css/styles.css" rel="stylesheet" type="text/css">
 
+
+        <script src="https://use.fontawesome.com/95088d75b6.js"></script>
         <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <!-- Styles -->
         <style>
@@ -91,18 +94,18 @@
                 <div class="container">
                     <div class="col-md-12">
                         <div class="col-md-5">
-                            <button class="btn btn-lg btn-block btn-success">
+                            <button class="btn btn-lg btn-block btn-success btn-landing">
                                 Quieres cazar las mejores ofertas?
-                                <h2>Click aquí</h2>
+                                <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Click aquí</h2>
                             </button>
                         </div>
                         <div class="col-md-2">
 
                         </div>
                         <div class="col-md-5">
-                            <button class="btn btn-lg btn-block btn-info">
-                                <p>Quieres anunciar tu negocio o servicios?</p>
-                                <h2>Click aquí</h2>
+                            <button class="btn btn-lg btn-block btn-info btn-landing">
+                                <p>Quieres anunciar tu negocio o servicios,<br> y llevarlo al siguiente nivel?</p>
+                                <h2><i class="fa fa-rocket" aria-hidden="true"></i> Click aquí</h2>
                             </button>
                         </div>
                     </div>

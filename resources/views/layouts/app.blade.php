@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <script src="https://use.fontawesome.com/95088d75b6.js"></script>
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
     <!-- Scripts -->
     <script>
@@ -82,6 +82,7 @@
     @yield('content')
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>
