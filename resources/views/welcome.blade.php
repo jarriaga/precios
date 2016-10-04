@@ -94,7 +94,7 @@
                 .btn-landing h2{
                     font-size: 20px;
                     margin: 5px;
-                    font-weight: 300;
+                    font-weight: 600;
                 }
 
             }
