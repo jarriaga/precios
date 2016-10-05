@@ -8,7 +8,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,500" rel="stylesheet" type="text/css">
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -115,7 +115,7 @@
                     Chécalo Aquí
                 </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-5 col-sm-6">
                             <a class="btn btn-lg btn-block btn-success btn-landing">
                                 <br>Quieres cazar las mejores ofertas?<br>
                                 <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Click aquí</h2>
@@ -124,8 +124,8 @@
                         <div class="col-md-2">
 
                         </div>
-                        <div class="col-md-5">
-                            <a class="btn btn-lg btn-block btn-info btn-landing">
+                        <div class="col-md-5 col-sm-6">
+                            <a class="btn btn-lg btn-block btn-warning btn-landing">
                                 Quieres anunciar tu negocio o servicios,<br> y llevarlo al siguiente nivel?
                                 <h2><i class="fa fa-rocket" aria-hidden="true"></i> Click aquí</h2>
                             </a>

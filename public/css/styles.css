@@ -11,6 +11,13 @@ html, body {
 
 }
 
+.btn{
+    font-weight: 300!important;
+}
+
+.btn-info{
+    background-color: #00afb7;
+}
 .overlay{
     position: absolute;
     top: 0;
