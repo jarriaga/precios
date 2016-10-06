@@ -53,16 +53,20 @@
             }
 
             .top-right {
+                height: 80px;
+                width: 100%;
                 position: absolute;
-                right: 10px;
-                top: 18px;
+                right: 0px;
+                left: 0px;
+                top: 0px;
                 z-index: 99;
+                background-color: rgba(255,255,255,.8);
             }
 
             .top-left {
                 position: absolute;
                 left: 20px;
-                top: 18px;
+                top: 0px;
                 z-index: 99;
             }
 
@@ -79,12 +83,14 @@
             }
 
             .links > a {
-                color: #fff;
+                color: #31708f;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
+                float: right;
+                margin-top: 30px;
                 text-transform: uppercase;
             }
 
@@ -101,7 +107,7 @@
                     <a href="{{ url('/register') }}"> {{ trans('app.Register') }}</a>
                 </div>
                 <div class="top-left">
-                    <img src="images/fondo-b-250x250.png" style="width:120px;height: auto">
+                    <img src="images/checalo-250x250.png" style="width:80px;height: auto">
                 </div>
             @endif
 
