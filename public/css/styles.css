@@ -18,7 +18,7 @@ html, body {
 .wrapper-content{
     position: relative;
     z-index: 99;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 .wrapper-app{
     position: relative;
@@ -75,7 +75,7 @@ html, body {
             font-size: 40px;
         }
         .wrapper-content{
-            margin-top: 40%;
+            margin-top: 0%;
         }
         .btn-landing {
             min-height: 80px;
