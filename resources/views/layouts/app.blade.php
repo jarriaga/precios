@@ -20,13 +20,30 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <style>
+
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            margin: 0;
+            /*css for full size background image*/
+            background: url('../images/background-compras.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+        }
+
+    </style>
 </head>
 <body>
-
+<div class="overlay"></div>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
@@ -36,9 +53,10 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', '') }}
-                </a>
+               <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
+                    <a  class="navbar-brand" href="/"><img src="images/checalo-250x250.png" style="width:80px;height: auto"></a>
+
+               <!-- </a> -->
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -50,37 +68,14 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}"> {{trans('app.Login')}}</a></li>
-                        <li><a href="{{ url('/register') }}">{{trans('app.Register')}}</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        {{trans('app.Logout')}}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
+                    @include('layouts.menu')
                 </ul>
             </div>
         </div>
     </nav>
-
+<div class="wrapper-app">
     @yield('content')
-
+</div>
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="/js/app.js"></script>

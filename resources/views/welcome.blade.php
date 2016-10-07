@@ -29,7 +29,7 @@
                 font-weight: 100;
                 margin: 0;
                 /*css for full size background image*/
-                background: url('/images/background-street.jpg') no-repeat center center fixed;
+                background: url('../images/background-carpintero.jpg') no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -60,7 +60,7 @@
                 left: 0px;
                 top: 0px;
                 z-index: 99;
-                background-color: rgba(255,255,255,.8);
+                background-color: rgba(255,255,255,.7);
             }
 
             .top-left {
@@ -100,17 +100,39 @@
     </head>
     <body >
         <div class="overlay"></div>
-        <div class="container ">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">{{ trans('app.Login') }}</a>
-                    <a href="{{ url('/register') }}"> {{ trans('app.Register') }}</a>
-                </div>
-                <div class="top-left">
-                    <img src="images/checalo-250x250.png" style="width:80px;height: auto">
-                </div>
-            @endif
+        <nav class="navbar navbar-default navbar-static-top navbar-homepage">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
+                    <!-- Branding Image -->
+                    <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
+                    <a  class="navbar-brand" href="/"><img src="images/checalo-250x250.png" style="width:80px;height: auto"></a>
+
+                    <!-- </a> -->
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @include('layouts.menu')
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container ">
             <div class="wrapper-content">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
@@ -121,7 +143,7 @@
                 </div>
                 <div class="row">
                         <div class="col-md-4 col-md-offset-1 col-sm-6 text-center">
-                            <a class="btn btn-lg btn-block btn-success btn-landing">
+                            <a class="btn btn-lg btn-block btn-success btn-landing" href="{{ url('/register') }}">
                                 <br>Quieres cazar las mejores ofertas?<br>
                                 <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> Click aquí</h2>
                             </a>

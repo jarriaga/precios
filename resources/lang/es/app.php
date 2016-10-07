@@ -15,12 +15,14 @@ return [
 	'Password'	=>	'Contraseña',
 	'PasswordConfirmation' => 'Confirmar Contraseña',
 	'Register'	=>	'Registrarse',
+	'RegisterUser' => 'Registrarse como Usuario',
 	'Login'		=>	'Iniciar sesión',
 	'Dashboard' =>  'Mis ofertas',
 	'Logout'	=>	'Salir',
 	'ForgotYourPassword' => 'Olvidaste tu contraseña?',
 	'RememberMe' => 'Mantener sesión',
-	'ResetPassword'=> 'Olvidaste tu contraseña'
+	'ResetPassword'=> 'Olvidaste tu contraseña',
+	'Profile'	=> 'Mi perfil'
 
 
 ];
