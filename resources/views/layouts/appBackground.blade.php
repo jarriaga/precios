@@ -10,8 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -21,18 +19,36 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
+    <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
-
-
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <style>
+
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            margin: 0;
+            /*css for full size background image*/
+            background: url('../images/background-compras.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+        }
+
+    </style>
 </head>
 <body>
+<div class="overlay"></div>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -46,7 +62,7 @@
 
                 <!-- Branding Image -->
                <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
-                    <a  class="navbar-brand" href="/"><img src="/images/checalo-250x250.png" style="width:80px;height: auto"></a>
+                    <a  class="navbar-brand" href="/"><img src="images/checalo-250x250.png" style="width:80px;height: auto"></a>
 
                <!-- </a> -->
             </div>
@@ -70,6 +86,5 @@
 </div>
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
 </body>
 </html>

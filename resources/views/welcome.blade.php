@@ -29,7 +29,7 @@
                 font-weight: 100;
                 margin: 0;
                 /*css for full size background image*/
-                background: url('../images/background-carpintero.jpg') no-repeat center center fixed;
+                background: url('../images/background-carpintero.jpg') no-repeat center right fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -137,8 +137,12 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="title m-b-md text-center">
-                            Buscas el mejor precio?
+                            Buscas el mejor precio?<br>
+                            <p class="white-color text-center font14">La comunidad digital que conecta servicios y productos con personas como tú, que buscan el mejor
+                                precio!</p>
                         </div>
+
+
                     </div>
                 </div>
                 <div class="row">

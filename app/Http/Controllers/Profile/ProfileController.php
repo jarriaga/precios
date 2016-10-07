@@ -18,7 +18,7 @@ class ProfileController extends Controller
 
 	public function getProfile($name, $id, Request $request)
 	{
-		dd($id);
+		return view('user.profile');
 	}
 
 
