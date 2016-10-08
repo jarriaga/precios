@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Profile;
 
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -18,7 +19,8 @@ class ProfileController extends Controller
 
 	public function getProfile($name, $id, Request $request)
 	{
-		return view('user.profile');
+		$user = User::findOrFail($id);
+		return view('user.profile')->with(['user'=>$user]);
 	}
 
 

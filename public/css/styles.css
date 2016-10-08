@@ -75,8 +75,19 @@ html, body {
 
 .profile-image img{
     width: 125px;
+    background-color: #fff;
     border:2px solid #fff;
 }
+
+.profile-image-user img{
+    width: 125px;
+    background-color: #fff;
+    border:1px solid #ddd;
+}
+.m-zero{
+    margin-top: 0px;
+}
+
 .profile-cover{
     background: url('https://placehold.it/1200x300/CCC/?text=Sube tu portada') center center no-repeat;
     background-color: #fff;
@@ -87,7 +98,17 @@ html, body {
 .profile-left{
     margin-top: 80px;
 }
-
+.review-block-title{
+    margin: 10px 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.review-block-rate{
+    color:#ffc000;
+}
+.review-block-date{
+    font-size: 12px;
+}
 
 .font14{font-size: 14px;}
 .panel-heading{

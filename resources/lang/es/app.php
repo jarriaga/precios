@@ -22,7 +22,10 @@ return [
 	'ForgotYourPassword' => 'Olvidaste tu contraseña?',
 	'RememberMe' => 'Mantener sesión',
 	'ResetPassword'=> 'Olvidaste tu contraseña',
-	'Profile'	=> 'Mi perfil'
+	'Profile'	=> 'Mi perfil',
+	'Reviews'	=>	'Reviews',
+	'Favorites' =>  'Negocios Favoritos',
+	'Complaints'=>	'Quejas'
 
 
 ];
