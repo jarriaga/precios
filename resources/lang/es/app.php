@@ -24,7 +24,7 @@ return [
 	'ResetPassword'=> 'Olvidaste tu contraseña',
 	'Profile'	=> 'Mi perfil',
 	'Reviews'	=>	'Reviews',
-	'Favorites' =>  'Negocios Favoritos',
+	'Favorites' =>  'Favoritos',
 	'Complaints'=>	'Quejas'
 
 
