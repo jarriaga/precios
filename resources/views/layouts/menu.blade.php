@@ -9,7 +9,7 @@
 
         <ul class="dropdown-menu" role="menu">
             <li>
-                <a href="{{ route('getProfile',['name'=>str_slug( Auth::user()->name),'id'=> Auth::user()->id])  }}">
+                <a href="{{ route('getUserProfile',['name'=>str_slug( Auth::user()->name),'id'=> Auth::user()->id])  }}">
                     {{trans('app.Profile')}}
                 </a>
             </li>

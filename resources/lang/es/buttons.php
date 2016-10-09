@@ -11,5 +11,6 @@ return [
 	'Register' => 'Enviar',
 	'Login' => 'Iniciar sesión',
 	'ResetPassword'=>'Resetear la contraseña',
-	'ActualizarPassword' => 'Actualizar contraseña'
+	'ActualizarPassword' => 'Actualizar contraseña',
+	'SaveProfile'=>'Guardar Perfil'
 ];

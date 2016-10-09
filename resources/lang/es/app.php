@@ -25,7 +25,13 @@ return [
 	'Profile'	=> 'Mi perfil',
 	'Reviews'	=>	'Reviews',
 	'Favorites' =>  'Favoritos',
-	'Complaints'=>	'Quejas'
+	'Complaints'=>	'Quejas',
+	'Biz'=>'Mis Negocios',
+	'AboutMe'=>'Acerca de mi',
+	'Country'=>'País',
+	'Birthday'=>'Cumpleaños',
+	'State'=>'Estado',
+	'City'=>'Ciudad'
 
 
 ];

@@ -10,14 +10,41 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="profile-image-user text-center">
-                                    <img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p320x320/14470521_10210167428758162_7126402757052981035_n.jpg?oh=a6902ea1913996e5b6cf395072a27504&oe=5873A2B6" class="img-rounded" >
+                                    @if($user->profileImage)
+                                        <img src="/images/profiles/users/{{$user->profileImage}}" class="img-rounded" >
+                                    @else
+                                        <img src="/images/profile/default-user.png"  >
+                                    @endif
                                 </div>
-                                <h3 class="text-center">{{ $user->name }}</h3>
-                                <p class="text-center"><small >Puebla México</small></p>
+                                @if($owner)
+                                <div class="text-center marginTB5">
+                                    <a href="{{ route('editUserProfile',['name'=>str_slug( Auth::user()->name),'id'=> Auth::user()->id])  }}"
+                                       class="btn btn-success btn-sm btn-block">Editar perfil</a>
+                                </div>
+                                @endif
+                                <h3 class="text-center marginTB5">{{ $user->name }}</h3>
+                                <p class="text-center"><small><i class="fa fa-map-marker" aria-hidden="true"></i> Puebla, México</small></p>
                                 <p class="text-justify">
                                     <em>Acerca de mi:</em><br>
-                                    Me gustan los taquitos del porky, y soy fan del futbol...
+                                    @if($user->aboutMe)
+                                       {{$user->aboutMe}}
+                                    @else
+                                        Escribe algo sobre ti...
+                                    @endif
                                 </p>
+                                @if($owner)
+                                    <hr>
+                                    <em>Mis intereses:</em>
+                                    <div>
+                                        <span class="label label-info">Mecánica</span>
+                                        <span class="label label-info">Farmacias</span>
+                                        <span class="label label-info">Ropa</span>
+                                        <span class="label label-info">Muebles</span>
+                                        <span class="label label-info">Plomeria</span>
+                                        <span class="label label-info">Zapateria</span>
+
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-8">
                                     <div class="row">
@@ -27,10 +54,11 @@
                                         <div class="col-md-12">
 
                                             <!-- Nav tabs -->
-                                            <ul class="nav nav-tabs" role="tablist" id="user-tabs">
+                                            <ul class="nav nav-tabs nav-justified" role="tablist" id="user-tabs">
                                                 <li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">{{ trans('app.Reviews') }}</a></li>
                                                 <li role="presentation"><a href="#favorites" aria-controls="favorites" role="tab" data-toggle="tab">{{trans('app.Favorites')}}</a></li>
-                                                <li role="presentation"><a href="#complaints" aria-controls="complaints" role="tab" data-toggle="tab">{{ trans('app.Complaints') }}</a></li>
+                                                <li role="presentation"><a href="#biz" aria-controls="favorites" role="tab" data-toggle="tab">{{trans('app.Biz')}}</a></li>
+
                                             </ul>
 
                                             <!-- Tab panes -->
@@ -76,9 +104,13 @@
                                                                     favoritos
                                                 </div>
                                                 <!---- / Favorites Panel --->
-                                                <div role="tabpanel" class="tab-pane" id="complaints">
-                                                        Quejas
+
+
+                                                <!-- Biz Panel -->
+                                                <div role="tabpanel" class="tab-pane" id="biz">
+                                                    Biz
                                                 </div>
+                                                <!-- / Biz Panel -->
                                             </div>
 
                                         </div>

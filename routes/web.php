@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('/profile/{name}/{id}/edit','Profile\\ProfileController@editProfile')->name('getProfile');
+    Route::get('/profile/{name}/{id}/edit','Profile\\UserProfileController@editUserProfile')->name('editUserProfile');
 });
 
 
-Route::get('/profile/{name}/{id}','Profile\\ProfileController@getProfile')->name('getProfile');
+Route::get('/profile/{name}/{id}','Profile\\UserProfileController@getUserProfile')->name('getUserProfile');
 
 Auth::routes();
 

@@ -82,7 +82,6 @@ html, body {
 .profile-image-user img{
     width: 125px;
     background-color: #fff;
-    border:1px solid #ddd;
 }
 .m-zero{
     margin-top: 0px;
@@ -114,6 +113,21 @@ html, body {
 .panel-heading{
     font-size: 16px;
 }
+.marginTB5{
+    margin: 5px 0px;
+}
+
+
+#fileselector {
+    margin: 10px;
+}
+#upload-file-selector {
+    display:none;
+}
+.margin-correction {
+    margin-right: 10px;
+}
+
     @media all and (max-width:768px) {
         .container {
             min-width: 320px;
