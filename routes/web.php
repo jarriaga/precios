@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/profile/{name}/{id}/edit','Profile\\UserProfileController@editUserProfile')->name('editUserProfile');
+    Route::post('/profile/user/update','Profile\\UserProfileController@postUpdateProfile')->name('postUpdateProfile');
 });
 
 

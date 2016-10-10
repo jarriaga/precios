@@ -13,90 +13,96 @@
                         <div class="row">
 
                             <div class="col-md-10 col-md-offset-1">
+                                <form class="form-horizontal" action="{{ route('postUpdateProfile')}}" method="POST" enctype="multipart/form-data">
                                 <div class="profile-image-user text-center">
+                                    @if($errors->first('message'))
+                                        <div class="row">
+                                            <div class="col-md-12 marginTB5">
+                                                <div  class="alert alert-danger ">
+                                                    {{$errors->first('message')}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @if($errors->first('profilePicture'))
+                                        <div class="row">
+                                            <div class="col-md-12 marginTB5">
+                                                <alert class="alert alert-danger ">
+                                                    {{$errors->first('profilePicture')}}
+                                                </alert>
+                                            </div>
+                                        </div>
+                                    @endif
                                     @if($user->profileImage)
-                                        <img src="/images/profiles/users/{{$user->profileImage}}" class="img-rounded" >
+                                        <img src="/images/app/profiles/users/{{$user->profileImage}}" class="img-rounded" >
                                     @else
-                                        <img src="/images/profile/default-user.png" >
+                                        <img id="profileImage" src="/images/profile/default-user.png" class="img-rounded">
                                     @endif
                                         <div style="margin: 10px auto;">
                                         <span id="fileselector">
                                             <label class="btn btn-default btn-sm" for="upload-file-selector">
-                                                <input name="profilePicture" id="upload-file-selector" type="file">
+                                                <input name="profilePicture" id="upload-file-selector"  accept="image/x-png, image/jpeg" type="file">
                                                 <i class="fa fa-upload margin-correction"></i>Foto de perfil
                                             </label>
                                         </span>
                                         </div>
+
                                 </div>
 
-                                <form class="form-horizontal">
-
-                                <div class="form-group">
+                                {{ csrf_field() }}
+                                    <div class="form-group {{ ($errors->first('name'))?'has-error':'' }}">
                                         <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.Name')}}</label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                                 <input type="email" class="form-control" id="inputEmail3" value="{{$user->name}}">
+                                                 <input type="text" name="name" class="form-control"  value="{{(old('name'))?old('name'):$user->name}}" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPassword3" class="col-sm-2 control-label">{{trans('app.AboutMe')}}</label>
                                         <div class="col-sm-10">
-                                            <textarea type="password" class="form-control" id="inputPassword3" >{{$user->aboutMe}}</textarea>
+                                            <textarea type="password" name="aboutMe" class="form-control"  >{{$user->aboutMe}}</textarea>
                                         </div>
                                     </div>
+
                                     <div class="form-group hidden">
                                         <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.Country')}}</label>
                                         <div class="col-sm-3">
-                                                <select name="country" class="form-control">
-                                                    @foreach($countries as $country)
-                                                        @if( strtolower($country) == 'mexico')
-                                                            <option value="{{$country}}" selected>{{$country}}</option>
-                                                        @else
-                                                            <option value="{{$country}}">{{$country}}</option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
+                                            <input type="text" class="form-control" id="country" name="country" value="">
                                         </div>
+                                    </div>
+                                    <div class="form-group hidden">
                                         <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.State')}}</label>
                                         <div class="col-sm-3">
-                                            <select name="country" class="form-control">
-                                                @foreach($countries as $country)
-                                                    @if( strtolower($country) == 'mexico')
-                                                        <option value="{{$country}}" selected>{{$country}}</option>
-                                                    @else
-                                                        <option value="{{$country}}">{{$country}}</option>
-                                                    @endif
-                                                @endforeach
-                                            </select>
+                                            <input type="text" class="form-control" id="state" name="state" value="">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.City')}}</label>
                                         <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail3" value="{{$user->city}}">
+                                                <input type="text" class="form-control" id="autocomplete" name="city" value="{{$user->city}}">
                                         </div>
                                     </div>
 
-                                        <div class="form-group">
-                                            <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.Birthday')}}</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon"><i class="fa fa-birthday-cake"></i></div>
-                                                    <input type="date" class="form-control" id="inputEmail3">
-                                                </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.Birthday')}}</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-birthday-cake"></i></div>
+                                                <input type="date" class="form-control" name="birthday">
                                             </div>
                                         </div>
-
-
+                                    </div>
 
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10 text-center">
-                                            <button type="submit" class="btn btn-lg btn-primary">{{trans('buttons.SaveProfile')}}</button>
+                                            <input type="submit" class="btn btn-lg btn-primary" value="{{trans('buttons.SaveProfile')}}">
                                         </div>
                                     </div>
+
+
                                 </form>
                             </div>
                         </div>
@@ -114,7 +120,61 @@
                 e.preventDefault()
                 $(this).tab('show')
             });
+
+            $('form input[type=submit]').click(function(){
+               $(this).addClass('disabled').val('{{ trans('buttons.Loading') }}');
+            });
         });
 
+        /**
+         * Callback for google places api
+         */
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                    {types: ['geocode']});
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillCity);
+        }
+
+        /**
+         * Fill the country and city
+         */
+        function fillCity() {
+            var place = autocomplete.getPlace();
+
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                //Check state
+                if(addressType=='administrative_area_level_1'){
+                    var val = place.address_components[i]['long_name'];
+                    document.getElementById('state').value = val;
+                }
+                //Country
+                if(addressType=='country'){
+                    var val = place.address_components[i]['long_name'];
+                    document.getElementById('country').value = val;
+                }
+            }
+        }
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#profileImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#upload-file-selector").change(function(){
+            readURL(this);
+        });
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=es&key=AIzaSyALNdShZrT3E98mZ48EaAsUUYI3_zfvcT8&callback=initAutocomplete" async defer></script>
 @endsection

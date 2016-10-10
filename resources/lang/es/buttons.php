@@ -12,5 +12,6 @@ return [
 	'Login' => 'Iniciar sesión',
 	'ResetPassword'=>'Resetear la contraseña',
 	'ActualizarPassword' => 'Actualizar contraseña',
-	'SaveProfile'=>'Guardar Perfil'
+	'SaveProfile'=>'Guardar Perfil',
+	'Loading'=>'Cargando...'
 ];
