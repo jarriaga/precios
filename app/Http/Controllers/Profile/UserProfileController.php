@@ -88,11 +88,11 @@ class UserProfileController extends Controller
 				$filename = str_random(10) . '.jpg';
 				Storage::disk('public')->put('profiles/' . $filename, $image->stream('jpg', 70));
 
-				$user->profileImage = $filename;
-
 				//Delete the old image
 				if($user->profileImage && Storage::disk('public')->exists('profiles/'.$user->profileImage))
 					Storage::disk('public')->delete('profiles/'.$user->profileImage);
+
+				$user->profileImage = $filename;
 			}
 		}catch( \Exception $error){
 			return back()->withInput()->withErrors(array('message' => trans('app.Error505')));
