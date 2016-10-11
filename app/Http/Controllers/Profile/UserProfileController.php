@@ -88,6 +88,8 @@ class UserProfileController extends Controller
 				$filename = str_random(10) . '.jpg';
 				Storage::disk('public')->put('profiles/' . $filename, $image->stream('jpg', 70));
 
+				$user->profileImage = $filename;
+
 				//Delete the old image
 				if($user->profileImage && Storage::disk('public')->exists('profiles/'.$user->profileImage))
 					Storage::disk('public')->delete('profiles/'.$user->profileImage);
@@ -101,7 +103,6 @@ class UserProfileController extends Controller
 		$user->country = $request->input('country',null);
 		$user->state = $request->input('state',null);
 		$user->city = $request->input('city',null);
-		$user->profileImage = isset($filename)?$filename:null;
 		$user->save();
 
 		$request->session()->flash('flash-success',trans('app.ProfileSaveSuccess') );
