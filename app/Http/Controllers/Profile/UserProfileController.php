@@ -91,8 +91,6 @@ class UserProfileController extends Controller
 				//Delete the old image
 				if($user->profileImage && Storage::disk('public')->exists('profiles/'.$user->profileImage))
 					Storage::disk('public')->delete('profiles/'.$user->profileImage);
-
-				$user->profileImage = $filename;
 			}
 		}catch( \Exception $error){
 			return back()->withInput()->withErrors(array('message' => trans('app.Error505')));
@@ -103,6 +101,7 @@ class UserProfileController extends Controller
 		$user->country = $request->input('country',null);
 		$user->state = $request->input('state',null);
 		$user->city = $request->input('city',null);
+		$user->profileImage = isset($filename)?$filename:$user->profileImage;
 		$user->save();
 
 		$request->session()->flash('flash-success',trans('app.ProfileSaveSuccess') );
