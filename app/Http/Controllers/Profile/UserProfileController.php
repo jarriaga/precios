@@ -70,7 +70,7 @@ class UserProfileController extends Controller
 
 		try{
 			//If has file
-			if ($request->hasFile('profilePicture')) {
+			if ($request->hasFile('profilePicture') && $request->file('profilePicture')->isValid()) {
 				//validate if the uploaded file is an image
 				$validator = Validator::make($request->only(['profilePicture']),
 					['profilePicture'=>'image']);
