@@ -127,8 +127,38 @@ html, body {
 .margin-correction {
     margin-right: 10px;
 }
+.category-selector {
+    background-color: #f5f8fa;
+    border: 1px solid #EEE;
+    padding: 0px 5px;
+    font-size: 12px;
+    margin:5px 0px;
+    line-height: 60px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+.category-checked{
+    width: 20px;
+    position: absolute;
+    height:auto;
+    top:5px;
+    left:5px;
+    display: none;
+}
+.category-selector.active{
+    background-color: #ef4449;
+    color: #fff;
+    font-weight: bold;
+}
 
-    @media all and (max-width:768px) {
+.category-selector.active img{
+    display: block;
+}
+
+
+@media all and (max-width:768px) {
         .container {
             min-width: 320px;
         }
@@ -150,6 +180,11 @@ html, body {
             font-size: 20px;
             margin: 5px;
             font-weight: 600;
+        }
+        .category-selector {
+            float: none;
+            width: 100%;
+            margin: 10px 0px;
         }
     }
 

@@ -11,7 +11,7 @@
                             <div class="col-md-4">
                                 <div class="profile-image-user text-center">
                                     @if($user->profileImage)
-                                        <img src="/images/profiles/users/{{$user->profileImage}}" class="img-rounded" >
+                                        <img src="{{asset('storage/profiles/'.$user->profileImage)}}" class="img-rounded" >
                                     @else
                                         <img src="/images/profile/default-user.png"  >
                                     @endif
@@ -23,13 +23,19 @@
                                 </div>
                                 @endif
                                 <h3 class="text-center marginTB5">{{ $user->name }}</h3>
-                                <p class="text-center"><small><i class="fa fa-map-marker" aria-hidden="true"></i> Puebla, México</small></p>
+                                @if($user->city)
+                                <p class="text-center">
+                                    <small>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{$user->city}}
+                                    </small>
+                                </p>
+                                @endif
                                 <p class="text-justify">
                                     <em>Acerca de mi:</em><br>
                                     @if($user->aboutMe)
                                        {{$user->aboutMe}}
                                     @else
-                                        Escribe algo sobre ti...
+                                      <small>{{trans('app.MessageAboutMe')}}</small>
                                     @endif
                                 </p>
                                 @if($owner)
@@ -132,6 +138,13 @@
                 $(this).tab('show')
             });
         });
+
+
+        @if (session('flash-success'))
+            toastr.success('{{ session('flash-success') }}', 'Excelente');
+        @endif
+
+
 
     </script>
 @endsection

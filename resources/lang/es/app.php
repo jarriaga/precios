@@ -31,7 +31,10 @@ return [
 	'Country'=>'País',
 	'Birthday'=>'Cumpleaños',
 	'State'=>'Estado',
-	'City'=>'Ciudad'
+	'City'=>'Ciudad',
+	'MessageAboutMe'=>'Agrega una breve descripción de ti',
+	'Error505' => 'Ocurrio un error, por favor intente nuevamente',
+	'ProfileSaveSuccess'=>'Tu perfil se ha actualizado correctamente'
 
 
 ];

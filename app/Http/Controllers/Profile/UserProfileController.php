@@ -58,10 +58,9 @@ class UserProfileController extends Controller
 
 	public function postUpdateProfile(Request $request)
 	{
-		$validator = Validator::make($request->only(['name','profilePicture']),
+		$validator = Validator::make($request->only(['name']),
 				[
-					'name'=>'required',
-					'profilePicture'=>'image'
+					'name'=>'required'
 				]);
 
 		if($validator->fails())
@@ -70,6 +69,13 @@ class UserProfileController extends Controller
 		try{
 			//If has file
 			if ($request->hasFile('profilePicture')) {
+				//validate if the uploaded file is an image
+				$validator = Validator::make($request->only(['profilePicture']),
+					['profilePicture'=>'image']);
+
+				if($validator->fails())
+					return back()->withInput()->withErrors($validator);
+
 				//save temp file
 				$filename = Storage::putFile('public/profiles', Input::file('profilePicture'));
 				//resize to 200px
@@ -81,7 +87,7 @@ class UserProfileController extends Controller
 				Storage::disk('public')->put('profiles/' . $filename, $image->stream('jpg', 70));
 			}
 		}catch( \Exception $error){
-			return back()->withInput()->withErrors(array('message' => 'Ocurrio un error, por favor intente nuevamente'));
+			return back()->withInput()->withErrors(array('message' => trans('app.Error505')));
 		}
 
 		$user = User::findOrFail(Auth::user()->id);
@@ -95,10 +101,12 @@ class UserProfileController extends Controller
 		$user->country = $request->input('country',null);
 		$user->state = $request->input('state',null);
 		$user->city = $request->input('city',null);
-		$user->profileImage = $filename;
+		$user->profileImage = isset($filename)?$filename:null;
 		$user->save();
 
-		dd($request->all());
+		$request->session()->flash('flash-success',trans('app.ProfileSaveSuccess') );
+
+		return redirect()->route('getUserProfile',['name'=>str_slug($user->name),'id'=>$user->id]);
 	}
 
 }

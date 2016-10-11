@@ -11,9 +11,9 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
+                            <form id="profileUserForm" class="form-horizontal" action="{{ route('postUpdateProfile')}}" method="POST" enctype="multipart/form-data">
 
                             <div class="col-md-10 col-md-offset-1">
-                                <form class="form-horizontal" action="{{ route('postUpdateProfile')}}" method="POST" enctype="multipart/form-data">
                                 <div class="profile-image-user text-center">
                                     @if($errors->first('message'))
                                         <div class="row">
@@ -96,15 +96,36 @@
                                         </div>
                                     </div>
 
+
+
+                              </div>
+
+                                <div class="col-md-12">
+                                    <h5 class="text-center">Selecciona los productos o servicios que son de tu interés:</h5>
+                                   <div class="categories">
+
+
+                                       @foreach(\App\Category::where('parent','=',0)->cursor() as $category)
+                                         <div class="col-md-4">
+                                             <div class="category-selector" category-id="{{$category->id}}">
+                                                 <img class="category-checked" src="/images/profile/checked2.png" >
+                                                 {{$category->name}}
+                                             </div>
+                                         </div>
+                                       @endforeach
+                                       <div class="clearfix"></div>
+                                   </div>
+
                                     <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10 text-center">
+                                        <div class="col-sm-offset-2 col-sm-8 text-center">
                                             <input type="submit" class="btn btn-lg btn-primary" value="{{trans('buttons.SaveProfile')}}">
                                         </div>
                                     </div>
 
+                                </div>
 
-                                </form>
-                            </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -123,6 +144,23 @@
 
             $('form input[type=submit]').click(function(){
                $(this).addClass('disabled').val('{{ trans('buttons.Loading') }}');
+            });
+
+
+            $('.category-selector').click(function(){
+                if($(this).hasClass('active'))
+                    $(this).removeClass('active');
+                else
+                    $(this).addClass('active');
+            });
+
+            //when the form is submit
+            $('#profileUserForm').submit(function(){
+                $('.category-selector.active').each(function(){
+                    $('.categories').append('<input name="categories[]" type="hidden" value="'+$(this).attr('category-id')+'">');
+                });
+
+                return;
             });
         });
 
