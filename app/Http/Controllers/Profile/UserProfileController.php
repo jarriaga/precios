@@ -66,6 +66,8 @@ class UserProfileController extends Controller
 		if($validator->fails())
 			return back()->withInput()->withErrors($validator);
 
+		$user = User::findOrFail(Auth::user()->id);
+
 		try{
 			//If has file
 			if ($request->hasFile('profilePicture')) {
@@ -85,16 +87,14 @@ class UserProfileController extends Controller
 				//save the new user file
 				$filename = str_random(10) . '.jpg';
 				Storage::disk('public')->put('profiles/' . $filename, $image->stream('jpg', 70));
+
+				//Delete the old image
+				if($user->profileImage && Storage::disk('public')->exists('profiles/'.$user->profileImage))
+					Storage::disk('public')->delete('profiles/'.$user->profileImage);
 			}
 		}catch( \Exception $error){
 			return back()->withInput()->withErrors(array('message' => trans('app.Error505')));
 		}
-
-		$user = User::findOrFail(Auth::user()->id);
-
-		//Delete the old image
-		if($user->profileImage && Storage::disk('public')->exists('profiles/'.$user->profileImage))
-			Storage::disk('public')->delete('profiles/'.$user->profileImage);
 
 		$user->name = $request->input('name',null);
 		$user->aboutMe = $request->input('aboutMe',null);
