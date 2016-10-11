@@ -34,7 +34,7 @@
                                         </div>
                                     @endif
                                     @if($user->profileImage)
-                                        <img src="/images/app/profiles/users/{{$user->profileImage}}" class="img-rounded" >
+                                        <img src="{{asset('storage/profiles/'.$user->profileImage)}}" class="img-rounded" >
                                     @else
                                         <img id="profileImage" src="/images/profile/default-user.png" class="img-rounded">
                                     @endif
