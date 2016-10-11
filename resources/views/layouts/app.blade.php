@@ -64,6 +64,25 @@
 <div class="wrapper-app">
     @yield('content')
 </div>
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="smallModal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" >
+                <div  class="text-muted" style="font-family: 'Oswald',sans-serif;padding:20px;font-size:26px;">
+                <span id="smallModalContent">
+
+                </span>
+                <span>
+                  <img src="/images/loading_dots.gif" width="64" height="64">
+                </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/95088d75b6.js"></script>
@@ -74,5 +93,22 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     @yield('javascript')
+
+<script>
+    /**
+     * Created by jbarron on 3/13/16.
+     */
+    function smallModal(message){
+        $('#smallModal').modal('show');
+        $('#smallModalContent').text(message);
+    }
+
+    /**
+     * Created by jbarron on 3/13/16.
+     */
+    function smallModalHide(message){
+        $('#smallModal').modal('hide');
+    }
+</script>
 </body>
 </html>

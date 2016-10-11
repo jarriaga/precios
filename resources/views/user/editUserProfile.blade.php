@@ -159,7 +159,7 @@
                 $('.category-selector.active').each(function(){
                     $('.categories').append('<input name="categories[]" type="hidden" value="'+$(this).attr('category-id')+'">');
                 });
-
+                smallModal('Cargando');
                 return;
             });
         });
