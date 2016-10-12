@@ -76,7 +76,8 @@ class UserProfileController extends Controller
 		$user = User::findOrFail(Auth::user()->id);
 
 		if($request->input('categories') && is_array($request->input('categories'))){
-			$user->categories()->sync($request->input('categories'));
+			$user->categories()->detach();
+			$user->categories()->attach($request->input('categories'));
 		}
 		//dd($request->all());
 		try{
