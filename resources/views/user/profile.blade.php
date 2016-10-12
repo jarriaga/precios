@@ -43,7 +43,7 @@
                                     <hr>
                                     <em>Mis intereses:</em>
                                     <div>
-                                        @if($user->categories)
+                                        @if(count($user->categories)>0)
                                             @foreach($user->categories as $category)
                                                 <span class="label label-info">{{$category->name}}</span>
                                             @endforeach

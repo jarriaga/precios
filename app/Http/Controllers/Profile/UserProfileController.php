@@ -74,9 +74,8 @@ class UserProfileController extends Controller
 
 		//Find the user if exist before update
 		$user = User::findOrFail(Auth::user()->id);
-
+		$user->categories()->detach();
 		if($request->input('categories') && is_array($request->input('categories'))){
-			$user->categories()->detach();
 			$user->categories()->attach($request->input('categories'));
 		}
 		//dd($request->all());

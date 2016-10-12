@@ -105,8 +105,6 @@
                                 <div class="col-md-12">
                                     <h5 class="text-center">Selecciona los productos o servicios que son de tu interés:</h5>
                                    <div class="categories">
-
-
                                        @foreach(\App\Category::where('parent','=',0)->cursor() as $category)
                                          <div class="col-md-4">
                                              <?php $selected = false;
