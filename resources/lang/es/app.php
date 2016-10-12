@@ -33,6 +33,7 @@ return [
 	'State'=>'Estado',
 	'City'=>'Ciudad',
 	'MessageAboutMe'=>'Agrega una breve descripción de ti',
+	'MesssageCategories'=>'Edita tu perfil para agregar las categorias que te interesan',
 	'Error505' => 'Ocurrio un error, por favor intente nuevamente',
 	'ProfileSaveSuccess'=>'Tu perfil se ha actualizado correctamente'
 

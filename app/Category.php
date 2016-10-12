@@ -13,4 +13,9 @@ class Category extends Model
 	];
 
 
+	public function Users()
+	{
+		return $this->belongsToMany('App\User');
+	}
+
 }

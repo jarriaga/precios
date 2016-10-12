@@ -55,7 +55,12 @@ class UserProfileController extends Controller
 	}
 
 
-
+	/**
+	 * This method update and save all the changes into the profile's user
+	 * and return to the user's profile page
+	 * @param Request $request
+	 * @return $this|\Illuminate\Http\RedirectResponse
+	 */
 	public function postUpdateProfile(Request $request)
 	{
 		$validator = Validator::make($request->only(['name']),
@@ -63,11 +68,17 @@ class UserProfileController extends Controller
 					'name'=>'required'
 				]);
 
+
 		if($validator->fails())
 			return back()->withInput()->withErrors($validator);
 
+		//Find the user if exist before update
 		$user = User::findOrFail(Auth::user()->id);
 
+		if($request->input('categories') && is_array($request->input('categories'))){
+			$user->categories()->sync($request->input('categories'));
+		}
+		//dd($request->all());
 		try{
 			//If has file
 			if ($request->hasFile('profilePicture') && $request->file('profilePicture')->isValid()) {
@@ -96,13 +107,17 @@ class UserProfileController extends Controller
 			return back()->withInput()->withErrors(array('message' => trans('app.Error505')));
 		}
 
-		$user->name = $request->input('name',null);
-		$user->aboutMe = $request->input('aboutMe',null);
-		$user->country = $request->input('country',null);
-		$user->state = $request->input('state',null);
-		$user->city = $request->input('city',null);
+		//Save the user data
+		$user->name = $request->input('name',$user->name);
+		$user->aboutMe = $request->input('aboutMe',$user->aboutMe);
+		$user->country = $request->input('country',$user->country);
+		$user->state = $request->input('state',$user->state);
+		$user->city = $request->input('city',$user->city);
+		$user->city2 = $request->input('city2',$user->city);
+		$user->birthday = (empty($request->input('birthday')))?null:$request->input('birthday');
 		$user->profileImage = isset($filename)?$filename:$user->profileImage;
 		$user->save();
+
 
 		$request->session()->flash('flash-success',trans('app.ProfileSaveSuccess') );
 

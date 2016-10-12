@@ -8,6 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="row">
+                            <!-- side part -->
                             <div class="col-md-4">
                                 <div class="profile-image-user text-center">
                                     @if($user->profileImage)
@@ -23,10 +24,10 @@
                                 </div>
                                 @endif
                                 <h3 class="text-center marginTB5">{{ $user->name }}</h3>
-                                @if($user->city)
+                                @if($user->city2)
                                 <p class="text-center">
                                     <small>
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{$user->city}}
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{$user->city2}}
                                     </small>
                                 </p>
                                 @endif
@@ -42,16 +43,17 @@
                                     <hr>
                                     <em>Mis intereses:</em>
                                     <div>
-                                        <span class="label label-info">Mecánica</span>
-                                        <span class="label label-info">Farmacias</span>
-                                        <span class="label label-info">Ropa</span>
-                                        <span class="label label-info">Muebles</span>
-                                        <span class="label label-info">Plomeria</span>
-                                        <span class="label label-info">Zapateria</span>
-
+                                        @if($user->categories)
+                                            @foreach($user->categories as $category)
+                                                <span class="label label-info">{{$category->name}}</span>
+                                            @endforeach
+                                        @else
+                                            <small>{{trans('app.MesssageCategories')}}</small>
+                                        @endif
                                     </div>
                                 @endif
                             </div>
+                            <!-- Central Part -->
                             <div class="col-md-8">
                                     <div class="row">
 

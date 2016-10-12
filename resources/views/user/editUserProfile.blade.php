@@ -69,20 +69,22 @@
                                     <div class="form-group hidden">
                                         <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.Country')}}</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="country" name="country" value="">
+                                            <input type="hidden" class="form-control" id="country" name="country" value="{{$user->country}}">
                                         </div>
                                     </div>
                                     <div class="form-group hidden">
                                         <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.State')}}</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="state" name="state" value="">
+                                            <input type="hidden" class="form-control" id="state" name="state" value="{{$user->state}}">
+                                            <input type="hidden" class="form-control" id="city" name="city" value="{{$user->city}}">
+
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-2 control-label">{{trans('app.City')}}</label>
                                         <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="autocomplete" name="city" value="{{$user->city}}">
+                                                <input type="text" class="form-control" id="autocomplete" name="city2" value="{{$user->city2}}">
                                         </div>
                                     </div>
 
@@ -91,7 +93,7 @@
                                         <div class="col-sm-10">
                                             <div class="input-group">
                                                 <div class="input-group-addon"><i class="fa fa-birthday-cake"></i></div>
-                                                <input type="date" class="form-control" name="birthday">
+                                                <input type="date" class="form-control" name="birthday" value="{{$user->birthday}}">
                                             </div>
                                         </div>
                                     </div>
@@ -107,7 +109,16 @@
 
                                        @foreach(\App\Category::where('parent','=',0)->cursor() as $category)
                                          <div class="col-md-4">
-                                             <div class="category-selector" category-id="{{$category->id}}">
+                                             <?php $selected = false;
+                                                    foreach($user->categories as $cat){
+                                                        if($cat->id == $category->id){
+                                                            $selected=true;
+                                                            break;
+                                                        }
+                                                    }
+                                             ?>
+
+                                             <div class="category-selector {{($selected)?"active":""}}" category-id="{{$category->id}}">
                                                  <img class="category-checked" src="/images/profile/checked2.png" >
                                                  {{$category->name}}
                                              </div>
@@ -137,6 +148,8 @@
 @section('javascript')
     <script>
         jQuery(document).ready(function(){
+
+
             $('#user-tabs a').click(function (e) {
                 e.preventDefault()
                 $(this).tab('show')
@@ -196,6 +209,12 @@
                 if(addressType=='country'){
                     var val = place.address_components[i]['long_name'];
                     document.getElementById('country').value = val;
+                }
+
+                //Country
+                if(addressType=='locality'){
+                    var val = place.address_components[i]['long_name'];
+                    document.getElementById('city').value = val;
                 }
             }
         }

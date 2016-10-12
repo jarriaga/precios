@@ -16,7 +16,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password','facebookId','profileImage',
-        'aboutMe','country', 'state','city'
+        'aboutMe','country', 'state','city','city2'
     ];
 
     /**
@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Category');
+    }
 }
