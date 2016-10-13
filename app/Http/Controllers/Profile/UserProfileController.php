@@ -91,10 +91,9 @@ class UserProfileController extends Controller
 					return back()->withInput()->withErrors($validator);
 
 				//save temp file
-				$manager = new ImageManager();
 				$filename = Storage::putFile('public/profiles', Input::file('profilePicture'));
 				//resize to 200px
-				$image = $manager->make(Storage::get($filename))->orientate();
+				$image = Image::make (Storage::get($filename))->orientate();
 				$image =$image->widen(200);
 				//delete the temp file
 				Storage::delete($filename);
