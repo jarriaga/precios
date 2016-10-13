@@ -16,7 +16,6 @@ class SetPasswordNullable extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->string('password')->nullable()->change();
-            $table->string('facebookId')->nullable();
         });
     }
 
@@ -30,7 +29,6 @@ class SetPasswordNullable extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->string('password')->nullable(false)->change();
-            $table->dropColumn('facebookId');
         });
     }
 }
