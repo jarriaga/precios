@@ -60,7 +60,6 @@ class AuthFacebookController extends Controller
 			// If the user has not provided an email then return to
 			// the route facebookUpdateEmail to ask for his email
 			// once the email is submitted then create the user
-			$email="";
 			if(!$email){
 				session([
 					'fb_facebookid'=>$facebookId,
