@@ -140,13 +140,5 @@
                 $(this).tab('show')
             });
         });
-
-
-        @if (session('flash-success'))
-            toastr.success('{{ session('flash-success') }}', 'Excelente');
-        @endif
-
-
-
     </script>
 @endsection

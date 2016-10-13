@@ -156,6 +156,13 @@ html, body {
 .category-selector.active img{
     display: block;
 }
+.facebook-login{
+    color: #fff;
+    max-width: 250px;
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+}
 
 
 @media all and (max-width:768px) {

@@ -15,12 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+/** Routes for Logged in users ******************************/
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/profile/{name}/{id}/edit','Profile\\UserProfileController@editUserProfile')->name('editUserProfile');
     Route::post('/profile/user/update','Profile\\UserProfileController@postUpdateProfile')->name('postUpdateProfile');
 });
 
+
+
+Route::group(['middleware'=>'guest'],function(){
+    Route::get('/auth/facebook/','AuthFacebookController@redirectToProvider')->name('facebookLogin');
+    Route::get('/auth/facebook/callback','AuthFacebookController@handleProviderCallback')->name('facebookCallback');
+    Route::get('/auth/facebook/email','AuthFacebookController@facebookUpdateEmail')->name('facebookUpdateEmail');
+    Route::post('/auth/facebook/email','AuthFacebookController@facebookUpdateEmailPost')->name('facebookUpdateEmailPost');
+});
 
 Route::get('/profile/{name}/{id}','Profile\\UserProfileController@getUserProfile')->name('getUserProfile');
 

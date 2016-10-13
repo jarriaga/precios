@@ -92,7 +92,7 @@ class UserProfileController extends Controller
 				//save temp file
 				$filename = Storage::putFile('public/profiles', Input::file('profilePicture'));
 				//resize to 200px
-				$image = Image::make(Storage::get($filename))->fit(200);
+				$image = Image::make(Storage::get($filename))->orientate()->fit(200);
 				//delete the temp file
 				Storage::delete($filename);
 				//save the new user file

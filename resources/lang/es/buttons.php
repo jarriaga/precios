@@ -8,7 +8,7 @@
 
 
 return [
-	'Register' => 'Enviar',
+	'Register' => 'Registrarse',
 	'Login' => 'Iniciar sesión',
 	'ResetPassword'=>'Resetear la contraseña',
 	'ActualizarPassword' => 'Actualizar contraseña',

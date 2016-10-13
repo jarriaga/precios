@@ -7,6 +7,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">{{trans('app.Login')}}</div>
                 <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a href="{{route('facebookLogin')}}">
+                                <img src="/images/facebook-login.png" class="facebook-login">
+                            </a>
+                            <hr>
+                        </div>
+                    </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
@@ -60,6 +69,8 @@
                             </div>
                         </div>
                     </form>
+
+
                 </div>
             </div>
         </div>

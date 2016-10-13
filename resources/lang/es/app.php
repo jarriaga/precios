@@ -35,7 +35,9 @@ return [
 	'MessageAboutMe'=>'Agrega una breve descripción de ti',
 	'MesssageCategories'=>'Edita tu perfil para agregar las categorias que te interesan',
 	'Error505' => 'Ocurrio un error, por favor intente nuevamente',
-	'ProfileSaveSuccess'=>'Tu perfil se ha actualizado correctamente'
+	'ProfileSaveSuccess'=>'Tu perfil se ha actualizado correctamente',
+	'FacebookPermissionsFail'=>'Debes aceptar los permisos de la aplicación para poder registrarte',
+	'FacebookUpdateEmail'=> 'Proporciona tu email para continuar con tu registro'
 
 
 ];
