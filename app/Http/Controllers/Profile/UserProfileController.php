@@ -15,6 +15,7 @@ use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
@@ -106,6 +107,7 @@ class UserProfileController extends Controller
 					Storage::disk('public')->delete('profiles/'.$user->profileImage);
 			}
 		}catch( \Exception $error){
+			Log::error($error->getMessage());
 			return back()->withInput()->withErrors(array('message' => trans('app.Error505')));
 		}
 
