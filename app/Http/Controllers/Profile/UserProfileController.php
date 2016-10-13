@@ -95,7 +95,7 @@ class UserProfileController extends Controller
 				$filename = Storage::putFile('public/profiles', Input::file('profilePicture'));
 				//resize to 200px
 				$image = Image::make ( storage_path().'/app/'.$filename )->orientate();
-				$image =$image->widen(200);
+				$image =$image->fit(200);
 				//delete the temp file
 				Storage::delete($filename);
 				//save the new user file
