@@ -37,6 +37,10 @@ class AuthFacebookController extends Controller
 			//using the socialite driver
 			$user = Socialite::driver('facebook')->user();
 
+			session()->forget('fb_name');
+			session()->forget('fb_facebookid');
+			session()->forget('fb_profileImage');
+
 			//get the info from the Facebook API
 			$facebookId = $user->getId();
 			$name = $user->getName();
@@ -69,7 +73,7 @@ class AuthFacebookController extends Controller
 			}
 			//otherwise then create a new user with the information and log in that user
 			// redirect to the dashboard
-			$profileImage = (session('fb_profileImage'))? $this->saveImageFromUrl(session('fb_profileImage')):null;
+			$profileImage = ($image)? $this->saveImageFromUrl($image):null;
 			$user = User::create([
 				'name' => $name,
 				'email' => $email,
