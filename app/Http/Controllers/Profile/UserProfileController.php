@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 
 class UserProfileController extends Controller
 {
@@ -90,9 +91,10 @@ class UserProfileController extends Controller
 					return back()->withInput()->withErrors($validator);
 
 				//save temp file
+				$manager = new ImageManager();
 				$filename = Storage::putFile('public/profiles', Input::file('profilePicture'));
 				//resize to 200px
-				$image = Image::make(Storage::get($filename))->orientate();
+				$image = $manager->make(Storage::get($filename))->orientate();
 				$image =$image->widen(200);
 				//delete the temp file
 				Storage::delete($filename);
