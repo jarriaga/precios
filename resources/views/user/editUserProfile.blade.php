@@ -41,7 +41,7 @@
                                         <div style="margin: 10px auto;">
                                         <span id="fileselector">
                                             <label class="btn btn-default btn-sm" for="upload-file-selector">
-                                                <input name="profilePicture" id="upload-file-selector"  accept="image/x-png, image/jpeg" type="file">
+                                                <input name="profilePicture" id="upload-file-selector"   accept="image/x-png, image/jpeg" type="file">
                                                 <i class="fa fa-upload margin-correction"></i>Foto de perfil
                                             </label>
                                         </span>
